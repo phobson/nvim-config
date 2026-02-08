@@ -11,5 +11,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- vim.opt.winborder = "rounded"
-vim.cmd.colorscheme "everforest"
+-- vim.cmd.colorscheme "everforest"
+vim.cmd.colorscheme("onedark")
+-- vim.cmd.colorscheme "everforest"
 -- vim.cmd.colorscheme "catppuccin"
