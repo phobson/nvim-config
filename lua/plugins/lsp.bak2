@@ -1,0 +1,75 @@
+-- LSP Plugins
+return {
+	{
+		-- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
+		-- used for completion, annotations and signatures of Neovim apis
+		"folke/lazydev.nvim",
+		ft = "lua",
+		opts = {
+			library = {
+				-- Load luvit types when the `vim.uv` word is found
+				-- { path = '${3rd}/luv/library', words = { 'vim%.uv' } }
+			},
+		},
+	},
+	{
+		"mason-org/mason-lspconfig.nvim",
+		config = function()
+			require("mason-lspconfig").setup({
+				ensure_installed = {
+					"lua_ls",
+					"jsonls",
+					"yamlls",
+					"pylsp",
+					"ruff",
+					"ty",
+					"air",
+					"stylua",
+				},
+			})
+		end,
+	},
+	{
+		"mason-org/mason.nvim",
+		config = function()
+			require("mason").setup()
+		end,
+	},
+	{
+		"neovim/nvim-lspconfig",
+		config = function()
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			vim.diagnostic.enable = true
+			vim.diagnostic.config({
+				-- virtual_lines = true,
+			})
+
+			vim.lsp.enable("lua_ls")
+			vim.lsp.config("pylsp", {
+				settings = {
+					pylsp = {
+						pyflakes = { enabled = false },
+						pycodestyle = { enabled = false },
+						autopep8 = { enabled = false },
+						yapf = { enabled = false },
+						mccabs = { enabled = false },
+						pylsp_mypy = { enabled = false },
+						pyblack = { enabled = false },
+						pylsp_isort = { enabled = false },
+					},
+				},
+			})
+			vim.lsp.enable("pylsp")
+			vim.lsp.enable("ruff")
+			vim.lsp.config("ty", {
+				settings = {
+					ty = {},
+				},
+			})
+			vim.lsp.enable("ty")
+			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "show hover tooltips" })
+			vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "go to definition" })
+			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
+		end,
+	},
+}
