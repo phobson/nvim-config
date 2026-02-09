@@ -8,7 +8,7 @@ vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left wind
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
-vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format)
+vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { desc = "Format file using the LSP" })
 vim.keymap.set("n", "<leader>wwq", ":wqall<cr>")
 vim.keymap.set("n", "<leader>www", ":wall<cr>")
 vim.keymap.set("n", "<leader>xxx", ":qa!<cr>")
