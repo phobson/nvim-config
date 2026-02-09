@@ -253,7 +253,16 @@ return {
 
             local json_capabilities = vim.lsp.protocol.make_client_capabilities()
             json_capabilities.textDocument.completion.completionItem.snippetSupport = true
-            vim.lsp.config("jsonls", { capabilities = json_capabilities })
+            vim.lsp.config("jsonls", {
+                capabilities = json_capabilities,
+                commands = {
+                    Format = {
+                        function()
+                            vim.lsp.buf.range_formatting({}, {0, 0}, {vim.fn.line("$"), 0})
+                        end
+                    }
+                }
+            })
 
             -- Optional: Only required if you need to update the language server settings
             vim.lsp.config("ty", {
