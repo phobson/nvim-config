@@ -279,18 +279,10 @@ return {
                     },
                 },
             })
-            vim.lsp.config("ruff_lsp", {
-                init_options = {
-                    settings = {
-                        -- ty options here
-                    },
-                },
-            })
             -- Required: Enable the language server
             vim.lsp.enable("ty")
             vim.lsp.enable("lua_ls")
             vim.lsp.enable("ruff")
-            vim.lsp.enable("ruff_lsp")
             vim.lsp.enable("jsonls")
             vim.lsp.enable("yamlls")
 
@@ -311,7 +303,6 @@ return {
             vim.list_extend(ensure_installed, {
                 "stylua", -- Used to format Lua code
                 "ruff",
-                "ruff_lsp",
                 "ty",
                 "prettier",
                 "jsonls",
