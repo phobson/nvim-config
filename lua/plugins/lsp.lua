@@ -247,7 +247,13 @@ return {
 						},
 					},
 				},
+                jsonls = {},
+                yamlls = {},
 			}
+
+            local json_capabilities = vim.lsp.protocol.make_client_capabilities()
+            json_capabilities.textDocument.completion.completionItem.snippetSupport = true
+            vim.lsp.config("jsonls", { capabilities = json_capabilities })
 
 			-- Optional: Only required if you need to update the language server settings
 			vim.lsp.config("ty", {
@@ -257,10 +263,27 @@ return {
 					},
 				},
 			})
+			vim.lsp.config("ruff", {
+				init_options = {
+					settings = {
+						-- ty options here
+					},
+				},
+			})
+			vim.lsp.config("ruff_lsp", {
+				init_options = {
+					settings = {
+						-- ty options here
+					},
+				},
+			})
 			-- Required: Enable the language server
 			vim.lsp.enable("ty")
 			vim.lsp.enable("lua_ls")
 			vim.lsp.enable("ruff")
+			vim.lsp.enable("ruff_lsp")
+			vim.lsp.enable("jsonls")
+			vim.lsp.enable("yamlls")
 
 			-- Ensure the servers and tools above are installed
 			--
@@ -279,7 +302,11 @@ return {
 			vim.list_extend(ensure_installed, {
 				"stylua", -- Used to format Lua code
                 "ruff",
-                "ty"
+                "ruff_lsp",
+                "ty",
+                "prettier",
+                "jsonls",
+                "yamlls"
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
