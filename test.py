@@ -1,8 +1,10 @@
-import polars as pl
+import sys
+from datetime import datetime
 
-x = [
-    1,
-    2,
-    3,
-]
+import time
 
+now: int = datetime.now("%Y%m%d")
+
+print(f"{now} is {x}")
+
+from pathlib import Path

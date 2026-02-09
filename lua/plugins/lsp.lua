@@ -273,7 +273,7 @@ return {
 			-- `mason` had to be setup earlier: to configure its options see the
 			-- `dependencies` table for `nvim-lspconfig` above.
 			--
-			-- You can add other tools here that you want Mason to install wqq
+			-- You can add other tools here that you want Mason to install
 			-- for you, so that they are available from within Neovim.
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
