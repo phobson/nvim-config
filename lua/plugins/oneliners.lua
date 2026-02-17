@@ -1,7 +1,6 @@
 return {
-    { -- git
-        "tpope/vim-fugitive",
-    },
+    { "tpope/vim-fugitive" }, -- git
+    { "lewis6991/gitsigns.nvim" },
     { -- css colors
         "brenoprata10/nvim-highlight-colors",
         config = function()
