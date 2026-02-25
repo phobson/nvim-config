@@ -23,12 +23,14 @@ return {
             require("telescope").setup({
                 defaults = {
                     file_ignore_patterns = {
-                        ".git",
+                        ".git/*",
                         ".venv",
                         "uv.lock",
                         "__pycache__",
                         ".ruff_cache",
-                        "__queuestorage__"
+                        "__queuestorage__",
+                        "__blobstorage__",
+                        "pytest_cache"
                     }
                 },
                 pickers = {

@@ -12,19 +12,22 @@ return {
             },
             filters = {
                 dotfiles = false,
-                git_ignored = false,
+                git_ignored = true,
                 custom = {
-                    "__pycache__",
-                    ".pytest_cache",
-                    ".ruff_cache",
-                    "__azurite_db_blob__.json",
-                    "__azurite_db_blob_extent__.json",
-                    "__azurite_db_table__.json",
-                    ".venv",
-                    "__blobstorage__",
-                    ".vscode",
-                    ".git"
+                    -- "__pycache__",
+                    -- ".pytest_cache",
+                    -- ".ruff_cache",
+                    -- "__azurite_db_blob__.json",
+                    -- "__azurite_db_blob_extent__.json",
+                    -- "__azurite_db_table__.json",
+                    -- ".venv",
+                    -- "__blobstorage__",
+                    -- ".vscode",
+                    -- ".git/*"
                 },
+                exclude = {
+                    ".git"
+                }
             },
             renderer = {
                 full_name = true,
