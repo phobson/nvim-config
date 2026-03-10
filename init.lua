@@ -10,7 +10,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
-if package.config.sub(1, 1) == "/" then
+if package.config:sub(1, 1) == "/" then
     -- not windows
 	vim.cmd.colorscheme("everforest")
 else
