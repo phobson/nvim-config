@@ -7,4 +7,11 @@ return {
     },
     { "nvim-tree/nvim-web-devicons", lazy = true },
     { "ThePrimeagen/vim-be-good" },
+    {
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        config = true
+        -- use opts = {} for passing setup options
+        -- this is equivalent to setup({}) function
+    },
 }
