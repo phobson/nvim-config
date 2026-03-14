@@ -22,5 +22,5 @@ if not IS_OMARCHY then
     end
 else
     -- OMARCHY sets the them
-    local junk = "junk"
+    require("omarchy-theme").setup()
 end

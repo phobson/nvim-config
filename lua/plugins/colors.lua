@@ -123,9 +123,6 @@ return {
     },
     {
         "rgarofano/omarchy-theme.nvim",
-        config = function()
-            require("omarchy-theme").setup()
-        end,
     },
     {
         "nvim-lualine/lualine.nvim",
