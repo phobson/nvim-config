@@ -10,10 +10,17 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
-if package.config:sub(1, 1) == "/" then
-    -- not windows
-	vim.cmd.colorscheme("everforest")
+local IS_OMARCHY = tonumber(os.getenv("IS_OMARCHY")) == 1
+
+if not IS_OMARCHY then
+    if (package.config:sub(1, 1) == "/") then
+        -- (WSL)
+        vim.cmd.colorscheme("everforest")
+    else
+        -- (Windows)
+        vim.cmd.colorscheme("onedark")
+    end
 else
-    -- windows
-	vim.cmd.colorscheme("onedark")
+    -- OMARCHY sets the them
+    require("omarchy-theme").setup()
 end
