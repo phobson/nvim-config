@@ -25,7 +25,7 @@ require("lazy").setup({
     install = { colorscheme = { "habamax" } },
     -- automatically check for plugin updates
     checker = { enabled = true },
-    -- change_detection = { notifiy = false },
+    change_detection = { notifiy = false },
 })
 
 vim.g.loaded_netrw = 1
