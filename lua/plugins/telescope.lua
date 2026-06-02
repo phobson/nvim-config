@@ -1,10 +1,15 @@
+if package.config:sub(1, 1) == "/" then
+    FZF_BUILD = "make"
+else
+    FZF_BUILD = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release --target install"
+end
 return {
     {
         "nvim-telescope/telescope.nvim",
         version = "v0.2.1",
         dependencies = {
             "nvim-lua/plenary.nvim",
-            { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+            { "nvim-telescope/telescope-fzf-native.nvim", build = FZF_BUILD },
         },
         defaults = {
             find_command = { "rg", "--hidden", "--ignore-case" },
@@ -14,11 +19,11 @@ return {
 
             require("telescope").setup({
                 pickers = {
-                    find_files = {}
+                    find_files = { theme = "ivy" },
                 },
                 extensions = {
-                    fzf = { theme = "ivy" }
-                }
+                    fzf = { theme = "ivy" },
+                },
             })
 
             require("telescope").load_extension("fzf")
@@ -43,8 +48,8 @@ return {
                         ".ruff_cache",
                         "__queuestorage__",
                         "__blobstorage__",
-                        "pytest_cache"
-                    }
+                        "pytest_cache",
+                    },
                 },
                 pickers = {
                     find_files = { hidden = true, no_ignore = true },

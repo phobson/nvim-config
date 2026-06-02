@@ -9,4 +9,8 @@ print(f"{now} is {x}")
 
 from pathlib import Path
 
-Path.
+x = {
+    "a": {
+         
+    }
+}
